@@ -1,0 +1,20 @@
+type Movie {
+    id: Int!
+    title: String!
+    rating: Float
+    description_intro: String
+    language: String
+    medium_cover_image: String
+    genres: [String]
+}
+
+type Query {
+    movies(limit: Int!, minimum_rating: Float!): [Movie]!
+    movie(id: Int!): Movie
+    suggestions(id: Int!): [Movie]!
+}
+
+type Mutation {
+    addMovie(title: String!, rating: Float): Movie!
+    deleteMovie(id: Int!): Boolean!
+}
